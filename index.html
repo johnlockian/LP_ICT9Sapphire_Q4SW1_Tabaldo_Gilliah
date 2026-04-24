@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seatwork 1</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1f3c88 0%, #3b8dff 100%);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+        }
+        .login-card {
+            width: 100%;
+            max-width: 420px;
+            padding: 36px 32px;
+            border-radius: 24px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.11);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .login-card h1 {
+            margin: 0 0 20px;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+        }
+        .login-card p {
+            margin: 0 0 28px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.84);
+        }
+        .field-group {
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+        .field-group label {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .field-group input {
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.14);
+            color: #ffffff;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .field-group input::placeholder {
+            color: rgba(255, 255, 255, 0.68);
+        }
+        .field-group input:focus {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
+        }
+        .submit-button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px 16px;
+            border: 2px white solid;
+            border-radius: 14px;
+            background: #fff;
+            color: #1f3c88;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+        }
+
+         .cancel-button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px 16px;
+            border: 2px white solid;
+            border-radius: 14px;
+            background-color: transparent;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+         }
+
+        .cancel-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.72);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h1 style="text-align: center;">Login</h1>
+        <p>Enter your credentials to access the dashboard.</p>
+        <form id="loginForm">
+            <div class="field-group">
+                <label for="uname">Username</label>
+                <input type="text" id="uname" placeholder="Enter username" autocomplete="username" required>
+            </div>
+            <div class="field-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" required>
+            </div>
+            <br>
+            <button type="submit" class="submit-button">Log In</button> <button type="submit" class="cancel-button">Cancel</button>
+        </form>
+        <div class="note">Valid credentials: <strong><br>user: franz <br>/<br> pass: jeremy_fraser123</strong></div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var username = document.getElementById('uname').value.trim();
+            var password = document.getElementById('password').value;
+
+            if (!username || !password) {
+                alert('Please enter both username and password.');
+                return;
+            }
+            if (username === 'franz' && password === 'jeremy_fraser123') {
+                alert('Welcome, ' + username + '!');
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
